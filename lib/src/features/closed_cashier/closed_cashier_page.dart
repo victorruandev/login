@@ -11,7 +11,7 @@ class ClosedCashierPage extends StatelessWidget {
         color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             Text(
               "Caixa Fechado",
               style: TextStyle(

@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_start/src/shared/models/auth/auth_controller.dart';
 
+import 'components/custom_button.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -17,14 +17,17 @@ class _AuthPageState extends State<AuthPage> {
   void initState() {
     controller = context.read<AuthController>();
     super.initState();
-    controller.addListener(() {
-      if (controller.state == AuthState.error) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Erro na autenticação')));
-      } else if (controller.state == AuthState.success) {
-        Navigator.of(context).pushReplacementNamed('/home');
-      }
-    });
+    controller.addListener(
+      () {
+        if (controller.state == AuthState.error) {
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Erro na autenticação')));
+        } else if (controller.state == AuthState.success) {
+          Navigator.of(context).pushReplacementNamed('/home');
+          // Navigator.of(context).popAndPushNamed('/home');
+        }
+      },
+    );
   }
 
   @override
@@ -77,32 +80,6 @@ class _AuthPageState extends State<AuthPage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  const CustomButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<AuthController>(
-      builder: (context, controller, child) {
-        final Size size = MediaQuery.of(context).size;
-
-        return SizedBox(
-          width: size.width * 0.5,
-          height: size.height * 0.08,
-          child: ElevatedButton(
-            onPressed: controller.state == AuthState.loading
-                ? null
-                : () {
-                    controller.loginAction();
-                  },
-            child: const Text('Login'),
-          ),
-        );
-      },
     );
   }
 }
