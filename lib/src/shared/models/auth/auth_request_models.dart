@@ -1,28 +1,28 @@
 import 'dart:convert';
 
 class AuthRequestModel {
-  final String user;
+  final String operatorCode;
   final String password;
 
-  AuthRequestModel(this.user, this.password);
+  AuthRequestModel(this.operatorCode, this.password);
 
-  AuthRequestModel copyWith({String? user, String? password}) {
+  AuthRequestModel copyWith({String? operatorCode, String? password}) {
     return AuthRequestModel(
-      user ?? this.user,
+      operatorCode ?? this.operatorCode,
       password ?? this.password,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'user': user,
+      'operatorCode': operatorCode,
       'password': password,
     };
   }
 
   factory AuthRequestModel.fromMap(Map<String, dynamic> map) {
     return AuthRequestModel(
-      map['user'],
+      map['operatorCode'],
       map['password'],
     );
   }

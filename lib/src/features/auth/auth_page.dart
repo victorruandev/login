@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_start/src/shared/models/auth/auth_controller.dart';
+import 'package:provider_start/src/features/auth/auth_controller.dart';
 
 import 'components/custom_button.dart';
 
@@ -15,8 +15,8 @@ class _AuthPageState extends State<AuthPage> {
   late final AuthController controller;
   @override
   void initState() {
-    controller = context.read<AuthController>();
     super.initState();
+    controller = context.read<AuthController>();
     controller.addListener(
       () {
         if (controller.state == AuthState.error) {
@@ -53,11 +53,11 @@ class _AuthPageState extends State<AuthPage> {
               child: TextField(
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Usuário',
+                  labelText: 'Código do Operador ',
                 ),
                 onChanged: (value) {
                   controller.authRequest =
-                      controller.authRequest.copyWith(user: value);
+                      controller.authRequest.copyWith(operatorCode: value);
                 },
               ),
             ),

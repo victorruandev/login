@@ -1,9 +1,12 @@
 
 import 'dart:convert';
 
-UserModel? globaUserModel;
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class UserModel {
+// UserModel? globaUserModel;
+
+class UserModel with ChangeNotifier{
   final String operatorName;
   final String cashierCode;
   // final String token;

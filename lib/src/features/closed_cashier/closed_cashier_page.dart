@@ -28,14 +28,14 @@ class ClosedCashierPage extends StatelessWidget {
               endIndent: 100,
             ),
             SizedBox(height: 30),
-            Text(
+            Text( 
               "ABRIR CAIXA PARA INICIAR AS VENDAS",
               style: TextStyle(
                   color: Colors.black,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   fontSize: 30),
             ),
-
+            
           ],
         ),
       ),

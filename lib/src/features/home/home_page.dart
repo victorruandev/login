@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
           onPressed: () async {
             final shared = await SharedPreferences.getInstance();
             shared.remove('UserModel');
-            Navigator.of(context).pushReplacementNamed('/auth');
+            Navigator.of(context).pushReplacementNamed('/');
           },
           child: const Text('Signout'),
         ),

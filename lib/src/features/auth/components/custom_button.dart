@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../shared/models/auth/auth_controller.dart';
+import '../auth_controller.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({Key? key}) : super(key: key);
